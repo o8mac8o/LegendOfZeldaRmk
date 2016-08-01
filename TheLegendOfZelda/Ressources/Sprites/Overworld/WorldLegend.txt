@@ -1,0 +1,4 @@
+w = wall
+s = sand
+a = water
+e = entrance
