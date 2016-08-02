@@ -50,6 +50,8 @@ public:
 	void ItemScroll();
 	bool isItemScrollReady();
 	void EndScroll();
+	void ReturnToMainMenu();
+	void InitializeTimers();
 private:
 	Sprite* waterFallBackground;
 	Sprite* waterFallSplash;

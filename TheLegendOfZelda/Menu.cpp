@@ -137,4 +137,25 @@ void Menu::EndScroll()
 		story->SetDstRect(0, GetX() - endMovement, MENU_HEIGHT, MENU_WIDTH, SCREEN_SCALING);
 		SetDstRect(0, SCREEN_RESOLUTION_Y - endMovement, MENU_HEIGHT, MENU_WIDTH, SCREEN_SCALING);
 	}
+	if (endMovement > storyMovementEnd + MENU_HEIGHT + 120)
+		ReturnToMainMenu();
+}
+
+void Menu::ReturnToMainMenu()
+{
+	SetDstRect(0, 0, MENU_HEIGHT, MENU_WIDTH, SCREEN_SCALING);
+	waterFallBackground->SetVisible(true);
+	InitializeTimers();
+}
+
+void Menu::InitializeTimers()
+{
+	storyTimer = 0;
+	menuAndStoryMovement = 0;
+	storyMovement = 0;
+	animTimer = 0;
+	isShowingStory = false;
+	endMovement = 0;
+	colorChangeTimer = 0;
+	story->SetSrcRect(STORY_SRC_X, STORY_SRC_Y, MENU_HEIGHT, MENU_WIDTH);
 }
