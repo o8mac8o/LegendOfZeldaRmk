@@ -1,5 +1,5 @@
 #pragma once
-#include "Menu.h"
+#include "MainMenu.h"
 
 class Game
 {
@@ -7,6 +7,6 @@ public:
 	Game();
 	~Game();
 private:
-	Menu* gameMenu;
+	MainMenu* gameMenu;
 };
 

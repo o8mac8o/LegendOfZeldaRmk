@@ -3,7 +3,7 @@
 Game::Game()
 {
 	gEngine->SetScreenRes(1000, 880, 0);
-	gameMenu = new Menu();
+	gameMenu = new MainMenu();
 }
 
 

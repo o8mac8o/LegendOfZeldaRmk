@@ -165,15 +165,17 @@
     <ClCompile Include="Collisions.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Link.cpp" />
+    <ClCompile Include="LoadMenu.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="MainMenu.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collisions.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Link.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="LoadMenu.h" />
+    <ClInclude Include="MainMenu.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
