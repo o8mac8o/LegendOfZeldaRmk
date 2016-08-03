@@ -2,28 +2,28 @@
    "games":[  
       {  
          "game1":{  
-            "name":"Marc",
-            "numberofhearts":4,
-            "numberofRupees":1,
-            "numberofkeys":2,
-            "numberofbombs":3,
-            "swordlevel":4
+            "name":"",
+            "numberofhearts":3,
+            "numberofRupees":0,
+            "numberofkeys":0,
+            "numberofbombs":0,
+            "swordlevel":0
          },
          "game2":{  
-            "name":"Bob",
+            "name":"",
             "numberofhearts":3,
-            "numberofRupees":1,
-            "numberofkeys":2,
-            "numberofbombs":3,
-            "swordlevel":4
+            "numberofRupees":0,
+            "numberofkeys":0,
+            "numberofbombs":0,
+            "swordlevel":0
          },
          "game3":{  
-            "name":"Marc",
+            "name":"",
             "numberofhearts":3,
-            "numberofRupees":1,
-            "numberofkeys":2,
-            "numberofbombs":3,
-            "swordlevel":4
+            "numberofRupees":0,
+            "numberofkeys":0,
+            "numberofbombs":0,
+            "swordlevel":0
          }
       }
    ]
