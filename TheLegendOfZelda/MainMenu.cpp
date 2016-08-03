@@ -23,6 +23,7 @@ MainMenu::~MainMenu()
 {
 	delete waterFallBackground;
 	delete story;
+	delete loadMenu;
 }
 
 void MainMenu::Update()
@@ -38,6 +39,7 @@ void MainMenu::Update()
 	if (isPlayerPressedStart())
 	{
 		ShowLoadMenu();
+		loadMenu->MakeHeartSelectorVisible();
 	}
 }
 
