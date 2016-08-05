@@ -11,15 +11,24 @@
 #define MENU_ANIM_THIRD_FRAMES 2
 #define MENU_ANIM_FIFTH_FRAMES 4
 
-#define BLACK_SCREEN_SRC_X 0
-#define BLACK_SCREEN_SRC_Y 758
-
 #define WATERFALL_SRC_X 346
 #define WATERFALL_SRC_Y 513
 #define WATERFALL_WIDTH 32
 #define WATERFALL_HEIGHT 58
-#define WATERFALL_DST_X 315.69f
-#define WATERFALL_DST_Y 662.76f
+#define WATERFALL_DST_X 314
+#define WATERFALL_DST_Y 722
+
+#define WATERFALL_TOP_SRC_X 384
+#define WATERFALL_TOP_SRC_Y 512
+#define WATERFALL_TOP_WIDTH 32
+#define WATERFALL_TOP_HEIGHT 7
+#define WATERFALL_TOP_DST_X 314
+#define WATERFALL_TOP_DST_Y 707
+
+#define WATERFALL_SPLASH_SRC_X 423
+#define WATERFALL_SPLASH_SRC_Y 539
+#define WATERFALL_SPLASH_SRC_Y2 551
+#define WATERFALL_SPLASH_DST_Y 690
 
 #define STORY_SRC_X 521
 #define STORY_SRC_Y 14
@@ -33,6 +42,8 @@ public:
 
 	void Update();
 
+	void AnimateWaterfallTop();
+	void SpawnWave();
 	void PlayMenuAnim();
 	void ChangeImage();
 	void SetMenuImage();
@@ -55,8 +66,11 @@ public:
 
 private:
 	Sprite* waterFallBackground;
+	Sprite* waterFallTop;
 	Sprite* waterFallSplash;
-	Sprite* waterFallWave;
+	Sprite* waterFallWave1;
+	Sprite* waterFallWave2;
+	Sprite* waterFallWave3;
 	Sprite* story;
 	Sprite* menuHeart;
 

@@ -10,13 +10,22 @@ MainMenu::MainMenu()
 	waterFallBackground->SetSrcRect(WATERFALL_SRC_X, WATERFALL_SRC_Y, WATERFALL_HEIGHT, WATERFALL_WIDTH);
 	waterFallBackground->SetDstRect(WATERFALL_DST_X, WATERFALL_DST_Y, WATERFALL_HEIGHT,
 		WATERFALL_WIDTH, SCREEN_SCALING);
+	waterFallTop = new Sprite("Ressources/Sprites/Menus/Menu.png");
+	waterFallTop->SetSrcRect(WATERFALL_TOP_SRC_X, WATERFALL_TOP_SRC_Y, WATERFALL_TOP_HEIGHT, WATERFALL_WIDTH);
+	waterFallTop->SetDstRect(WATERFALL_DST_X, WATERFALL_TOP_DST_Y, WATERFALL_TOP_HEIGHT,
+		WATERFALL_WIDTH, SCREEN_SCALING); 
 	story = new Sprite("Ressources/Sprites/Menus/Menu.png");
 	story->SetSrcRect(STORY_SRC_X, STORY_SRC_Y, MENU_HEIGHT, MENU_WIDTH);
 	story->SetDstRect(0, SCREEN_RESOLUTION_Y, MENU_HEIGHT, MENU_WIDTH, SCREEN_SCALING);
+	waterFallSplash = new Sprite("Ressources/Sprites/Menus/Menu.png");
+	waterFallSplash->SetSrcRect(WATERFALL_SPLASH_SRC_X, WATERFALL_SPLASH_SRC_Y, WATERFALL_TOP_HEIGHT, WATERFALL_WIDTH);
+	waterFallSplash->SetDstRect(WATERFALL_DST_X, WATERFALL_SPLASH_DST_Y, WATERFALL_TOP_HEIGHT, WATERFALL_WIDTH, SCREEN_SCALING);
 	loadMenu = new LoadMenu();
 	loadMenu->SetIsActive(false);
 	loadMenu->SetVisible(false);
 	gTimer->Reset();
+
+	Music::getInstance()->Play();
 }
 
 MainMenu::~MainMenu()
@@ -29,6 +38,7 @@ MainMenu::~MainMenu()
 void MainMenu::Update()
 {
 	animTimer += gTimer->GetDeltaTime();
+	AnimateWaterfallTop();
 	if (storyTimer < storyDelay)
 	{
 		PlayMenuAnim();
@@ -38,8 +48,37 @@ void MainMenu::Update()
 		ShowStory();
 	if (isPlayerPressedStart())
 	{
+		Music::getInstance()->Stop();
 		ShowLoadMenu();
 		loadMenu->MakeHeartSelectorVisible();
+	}
+}
+
+void MainMenu::AnimateWaterfallTop()
+{
+	if ((int)(animTimer * 10) % 2)
+	{
+		waterFallTop->SetSrcPosition(WATERFALL_TOP_SRC_X, WATERFALL_TOP_SRC_Y);
+		waterFallSplash->SetSrcPosition(WATERFALL_SPLASH_SRC_X, WATERFALL_SPLASH_SRC_Y);
+	}
+	else
+	{
+		waterFallTop->SetSrcPosition(WATERFALL_TOP_SRC_X + WATERFALL_TOP_WIDTH, WATERFALL_TOP_SRC_Y);
+		waterFallSplash->SetSrcPosition(WATERFALL_SPLASH_SRC_X, WATERFALL_SPLASH_SRC_Y2);
+	}
+}
+
+void MainMenu::SpawnWave()
+{
+	if ((int)(animTimer * 10) % 2)
+	{
+		waterFallTop->SetSrcPosition(WATERFALL_TOP_SRC_X, WATERFALL_TOP_SRC_Y);
+		waterFallSplash->SetSrcPosition(WATERFALL_SPLASH_SRC_X, WATERFALL_SPLASH_SRC_Y);
+	}
+	else
+	{
+		waterFallTop->SetSrcPosition(WATERFALL_TOP_SRC_X + WATERFALL_TOP_WIDTH, WATERFALL_TOP_SRC_Y);
+		waterFallSplash->SetSrcPosition(WATERFALL_SPLASH_SRC_X, WATERFALL_SPLASH_SRC_Y2);
 	}
 }
 

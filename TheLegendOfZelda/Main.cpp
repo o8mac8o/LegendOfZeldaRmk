@@ -12,6 +12,5 @@ int main(int argc, char* args[])
 
 	//delete game;
 
-
 	return assert;
 }
